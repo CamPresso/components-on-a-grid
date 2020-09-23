@@ -18,14 +18,54 @@ img {
 header {
   /* Remove the <header> box and allow us to directly apply header’s children to the grid. */
   display: contents;
+  margin: 1rem;
+  grid-area: header;
 }
 
-.banner {
+body {
   display: grid;
+  padding: 1rem;
+  grid-template-columns: 2fr;
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "header header"
+    "header header"
+    "figure figure";
 }
 
-li {
-  float: right;
+main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  color: #30658d;
+  grid-area: figure;
+}
+
+h2 {
+  font-family: "Patua One", sans-serif;
+  color: #30658d;
+}
+
+nav {
+  grid-column: 2;
+  grid-row: 1;
+  z-index: 3;
+}
+
+p {
+  margin: .25em;
+}
+
+ul {
+  display: flex;
+  padding-right: 3rem;
+  justify-content: flex-end;
+}
+
+ul li {
+  text-decoration: none;
+  font-family: "Patua One", sans-serif;
+  display: inline;
+  padding: 1rem;
 }
 
 a {
@@ -40,11 +80,10 @@ a {
   grid-row: 2;
   grid-column: 1;
   width: 14rem;
-
 }
 
 .pano {
-  grid-column: 1 / 2;
-  grid-row: 1 / 2;
+  grid-column: 1 /span 2;
+  grid-row: 1 /span 2;
   z-index: 1;
 }
